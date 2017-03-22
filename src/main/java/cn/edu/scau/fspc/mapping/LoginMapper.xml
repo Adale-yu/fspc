@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.scau.fspc.dao.LoginDao">
+
+	<select id="getLoginDao" parameterType = "String" resultType = "cn.edu.scau.fspc.entity.Login">
+		select * from managerinfo where username = #{username};
+	</select>
+	
+	<select id = "selectUsername" parameterType = "String" resultType = "String">
+		select username from managerinfo where username = #{username};
+	</select>
+	
+	<insert id = "signup" parameterType = "cn.edu.scau.fspc.entity.Login" >
+		insert into managerinfo(username,email,password,authority)
+		values
+		(#{username},#{email},#{password},#{authority}); 
+		
+	</insert>
+
+</mapper>
