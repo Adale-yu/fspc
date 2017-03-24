@@ -39,6 +39,13 @@ public class NewsController {
 		return comm;
 	}
 	
+	@RequestMapping("/delete")
+	public @ResponseBody String delete(String title){
+		//newsService.delete(title);
+		
+		return "ok";
+	}
+	
 	@RequestMapping("/addNews")
 	public @ResponseBody String addNews(News news){
 		

@@ -12,4 +12,6 @@ public interface NewsDao {
 
 	public void addNews(News news);
 
+	public void delete(String title);
+
 }

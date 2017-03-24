@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+<mapper namespace="cn.edu.scau.fspc.dao.PageDao">
+
+	<select id = "getPage1"  parameterType = "cn.edu.scau.fspc.dto.Page" resultType = "cn.edu.scau.fspc.entity.News">
+		select * from news limit #{start},#{size};
+	</select>
+	
+	<select id = "getPage2"  parameterType = "cn.edu.scau.fspc.dto.Page" resultType = "cn.edu.scau.fspc.entity.News">
+		select * from news 
+		where author = #{author}
+		limit #{start},#{size};
+	</select>
+	
+	<select id = "getPage3"  parameterType = "cn.edu.scau.fspc.dto.Page" resultType = "cn.edu.scau.fspc.entity.News">
+		select * from news where type = #{type}
+		limit #{start},#{size};
+	</select>
+	
+	<select id = "getPage4"  parameterType = "cn.edu.scau.fspc.dto.Page" resultType = "cn.edu.scau.fspc.entity.News">
+		select * from news 
+		where type = #{type} and author = #{author}
+		limit #{start},#{size};
+	</select>
+	
+	<select id = "getSum1" resultType = "int">
+		select count(*) from news;
+	</select>
+	
+	<select id = "getSum2" parameterType = "String" resultType = "int">
+		select count(*) from news 
+		where author = #{author};
+	</select>
+	
+	<select id = "getSum3" parameterType = "String" resultType = "int">
+		select count(*) from news
+		where type =  #{type};
+	</select>
+	
+	<select id = "getSum4" parameterType = "String" resultType = "int">
+		select count(*) from news
+		where type = #{type}
+		and author = #{author};
+	</select>
+
+</mapper>

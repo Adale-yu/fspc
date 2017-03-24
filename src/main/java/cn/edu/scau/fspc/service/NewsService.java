@@ -16,5 +16,7 @@ public interface NewsService {
 
 	public void addNews(News news)  throws CheckException ;
 
+	public void delete(String title);
+
 
 }

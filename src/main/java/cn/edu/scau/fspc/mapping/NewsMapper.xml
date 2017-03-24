@@ -21,6 +21,10 @@
 		where com.title = #{title};
 	</select>
 	
+	<delete id = "delete" parameterType = "String">
+		delete from news where title = #{title};
+	</delete>
+	
 	<insert id = "addNews" parameterType = "cn.edu.scau.fspc.entity.News">
 		insert into news(title,type,author,date,summarization,content,url1,url2,url3)
 		values(#{title},#{type},#{author},#{date},#{summarization},#{content},#{url1},#{url2},#{url3});

@@ -26,6 +26,12 @@ public class NewsServiceImpl implements NewsService{
 	public News checkDetail(String title){
 		return newsDao.checkDetail(title);
 	}
+	
+	@Override
+	public void delete(String title) {
+		newsDao.delete(title);
+		
+	}
 
 	@Override
 	public void addNews(News news) throws CheckException{
@@ -57,4 +63,5 @@ public class NewsServiceImpl implements NewsService{
 	       } 
 	       return convertSuccess;
 	}
+
 }

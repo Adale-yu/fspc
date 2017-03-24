@@ -54,6 +54,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	.edit_td{
 		width: 80px;
+		cursor: pointer;
+    	color:  #185598;
+	}
 	}
 	
 	.content table tt{
@@ -109,7 +112,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<br>
 			<div class="content">
 				<p class="type">新闻类型</p>
-				<select class="type">
+				<select id = "news_type" class="type" onchange="news_type()">
+					<option>所有类型</option>
 					<option>金融新闻</option>
 					<option>健康新闻</option>
 					<option>便民新闻</option>
@@ -117,84 +121,84 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<option>娱乐新闻</option>
 					<option>体育新闻</option>
 				</select>
-				<table>
+				<table style="margin-top: 10px;">
 					<thead>
 						<td>标题</td>
 						<td>作者</td>
 						<td>发布日期</td>
 						<td>新闻类型</td>
 						<td>
-							<tt class="edit_td">查看</tt>
-							<tt class="edit_td">修改</tt>
-							<tt class="edit_td">删除</tt>
+							<tt class="edit_td"></tt>
+							<tt class="edit_td"></tt>
+							<tt class="edit_td"></tt>
 						</td>
 						
 					</thead>
-					<tr>
-						<td>千万记得为孩子办理居民医疗保险</td>
-						<td></td>
-						<td></td>
-						<td></td>
+					<tr class="edit_tr">
+						<td class="edit_td2">${page.target[0].title}</td>
+						<td class="edit_td2">${page.target[0].author}</td>
+						<td class="edit_td2">${page.target[0].date}</td>
+						<td class="edit_td2">${page.target[0].type}</td>
 						<td>
-							<tt class="edit_td">查看</tt>
-							<tt class="edit_td">修改</tt>
-							<tt class="edit_td">删除</tt>
+							<tt class="edit_td check_tt">查看</tt>
+							<tt class="edit_td modify_tt">修改</tt>
+							<tt class="edit_td delete_tt">删除</tt>
 						</td>
 					</tr>					
-					<tr>
-						<td>中国航空发动机集团成立 习近平作指示李克强作批示</td>
-						<td></td>
-						<td></td>
-						<td></td>
+					<tr class="edit_tr">
+						<td class="edit_td2">${page.target[1].title}</td>
+						<td class="edit_td2">${page.target[1].author}</td>
+						<td class="edit_td2">${page.target[1].date}</td>
+						<td class="edit_td2">${page.target[1].type}</td>
 						<td>
-							<tt class="edit_td">查看</tt>
-							<tt class="edit_td">修改</tt>
-							<tt class="edit_td">删除</tt>
+							<tt class="edit_td check_tt">查看</tt>
+							<tt class="edit_td modify_tt">修改</tt>
+							<tt class="edit_td delete_tt">删除</tt>
 						</td>
 					</tr>
-					<tr>
-						<td>中国航空发动机集团成立 习近平作指示李克强作批示</td>
-						<td></td>
-						<td></td>
-						<td></td>
+					<tr class="edit_tr">
+						<td class="edit_td2">${page.target[2].title}</td>
+						<td class="edit_td2">${page.target[2].author}</td>
+						<td class="edit_td2">${page.target[2].date}</td>
+						<td class="edit_td2">${page.target[2].type}</td>
 						<td>
-							<tt class="edit_td">查看</tt>
-							<tt class="edit_td">修改</tt>
-							<tt class="edit_td">删除</tt>
+							<tt class="edit_td check_tt">查看</tt>
+							<tt class="edit_td modify_tt">修改</tt>
+							<tt class="edit_td delete_tt">删除</tt>
 						</td>
 					</tr>
-					<tr>
-						<td>中国航空发动机集团成立 习近平作指示李克强作批示</td>
-						<td></td>
-						<td></td>
-						<td></td>
+					<tr class="edit_tr">
+						<td class="edit_td2">${page.target[3].title}</td>
+						<td class="edit_td2">${page.target[3].author}</td>
+						<td class="edit_td2">${page.target[3].date}</td>
+						<td class="edit_td2">${page.target[3].type}</td>
 						<td>
-							<tt class="edit_td">查看</tt>
-							<tt class="edit_td">修改</tt>
-							<tt class="edit_td">删除</tt>
+							<tt class="edit_td check_tt">查看</tt>
+							<tt class="edit_td modify_tt">修改</tt>
+							<tt class="edit_td delete_tt">删除</tt>
 						</td>
 					</tr>
-					<tr>
-						<td>中国航空发动机集团成立 习近平作指示李克强作批示</td>
-						<td></td>
-						<td></td>
-						<td></td>
+					<tr class="edit_tr">
+						<td class="edit_td2">${page.target[4].title}</td>
+						<td class="edit_td2">${page.target[4].author}</td>
+						<td class="edit_td2">${page.target[4].date}</td>
+						<td class="edit_td2">${page.target[4].type}</td>
 						<td>
-							<tt class="edit_td">查看</tt>
-							<tt class="edit_td">修改</tt>
-							<tt class="edit_td">删除</tt>
+							<tt class="edit_td check_tt">查看</tt>
+							<tt class="edit_td modify_tt">修改</tt>
+							<tt class="edit_td delete_tt">删除</tt>
 						</td>
 					</tr>
 				</table>
 
 				<div class = "page">
-					<span>上一页</span>
-					<span>1</span>
-					<span>2</span>
-					<span>3</span>
-					<span>4</span>
-					<span>5</span>
-					<span>下一页</span>
+					<span id="page_up">上一页</span>
+					<span id="current_page">1</span>
+					<span id="page_next">下一页</span>
+					
+					<select id="page_select" onchange="page_select()">
+						<option  id="page_sum" value= ${page.sum} >共${page.sum}页</option>
+					</select>
 				</div>
 			</div>			
 		</nav>
@@ -236,6 +240,121 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- Supportive-JavaScript --> <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 	<!-- Necessary-JS-File-For-Bootstrap --> <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 	
+	
+	<!-- 自定义js -->
+	<!-- 查看删除修改js -->
+	<script type="text/javascript">
+		$(".check_tt").click(function(){
+			var title = $(this).parent().siblings().slice(0, 1).text();
+			$.post('/fspc/news/checkDetail', {title: title}, function(data) {
+				alert(data.summarization);
+			},"json");
+		});	
+		$(".modify_tt").click(function(){
+			var title = $(this).parent().siblings().slice(0, 1).text();
+		});
+		$(".delete_tt").click(function(){
+			var title = $(this).parent().siblings().slice(0, 1).text();
+			
+			if(confirm("是否进行删除？")){
+				$.post('/fspc/news/delete', {title: title}, function(data) {
+					console.log(data);
+					window.location.href = "/fspc/manage/manageNews";
+				});
+			}
+		});
+
+	</script>
+
+	<!-- 分页js -->
+	<script type="text/javascript">
+		$.ajaxSetup({
+		    async : false
+		}); 
+
+		//page函数，根据当前页面讯息获取后台数据
+		function page(current){
+			var type = $("#news_type option:selected").text();
+			var author = "yuyu";
+			var data;
+			$.post('/fspc/manage/page', {current: current,type:type,author:author},
+			 function(data2) {
+			 	data = data2;
+			},"json");
+			return data;
+		}
+
+		//根据获得的数据翻页填充数据；
+		function flip(data){
+			$(".edit_td2,edit_td").text("");
+			$("#current_page").text(data.current);
+			$("#page_select").val(data.current);
+			for(var i = 0;i<data.target.length;i++){
+				$(".edit_tr").slice(i, i+1).children(".edit_td2").slice(0, 1).text(data.target[i].title);
+				$(".edit_tr").slice(i, i+1).children(".edit_td2").slice(1, 2).text(data.target[i].author);
+				$(".edit_tr").slice(i, i+1).children(".edit_td2").slice(2, 3).text(data.target[i].date);
+				$(".edit_tr").slice(i, i+1).children(".edit_td2").slice(3, 4).text(data.target[i].type);
+			}
+		}
+
+		//select选择框跳转页面
+		function page_select(){
+			var str = $("#page_select option:selected").text();
+			var current = $("#page_select option:selected").val();
+			var data = page(current);
+			flip(data);
+		}
+
+		//根据page_sum（总页数）改变page_select下拉 
+		function page_select_change(page_sum){
+			$("#page_select").empty();
+			var option1 = "<option id = 'page_sum' value = '"+page_sum+"'>共"+page_sum+"页</option>";
+			$("#page_select").append(option1);
+			for(var i = 1;i <= page_sum;i++){
+				var str = '<option value = "'+i+'">第'+i+'页</option>';
+				$("#page_select").append(str);
+			}
+		}
+
+		//点击下一页跳转页面
+		$("#page_next").click(function(){
+			var current = parseInt($("#current_page").text());
+			var page_sum = parseInt($("#page_sum").val());
+			if(current == page_sum){
+				alert("已是最后一页！");
+				return;
+			}
+			var data = page(current+1);
+			flip(data);
+		});
+		
+		//点击上一页跳转页面
+		$("#page_up").click(function(){
+			var current = parseInt($("#current_page").text());
+			if(current == 1){
+				alert("已是第一页！");
+				return;
+			}
+			var data = page(current-1);
+			flip(data);
+		});
+
+
+		//加载页面时动态加载select下拉框
+		page_select_change($("#page_sum").val());
+
+		//根据新闻类型改变分页状态
+		function news_type(){
+			var data = page(1);
+			page_select_change(data.sum);
+			$("#page_sum").val(data.sum);
+			$("#page_sum").text("共"+data.sum+"页");
+			flip(data);
+		}
+
+	</script>
+
+
 	<!-- Banner-Slider-JavaScript -->
 	<script src="<%=request.getContextPath()%>/resources/js/responsiveslides.min.js"></script>
 	<script>
